@@ -34,9 +34,10 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 				num = num + Input[i];
 			} else if(Input[i] == 'p'){
 				num = pi;
-			} else if(Input[i] == 'r'){
-				num = rand();
-			} else if(Input[i] == 'm'){
+			} //else if(Input[i] == 'r'){
+				//num = rand() % 9999 + 0;
+			//} 
+			else if(Input[i] == 'm'){
 				num = mem;
 			} else {
 				return "Error 2.5 | Invalid input";
@@ -78,9 +79,10 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 				num = num + Input[i];
 			} else if(Input[i] == 'p'){
 				num = pi;
-			} else if(Input[i] == 'r'){
-				num = rand();
-			} else if(Input[i] == 'm'){
+			} //else if(Input[i] == 'r'){
+			//	num = rand();
+			//} 
+			else if(Input[i] == 'm'){
 				num = mem;
 			}else {
 				return "Error 2.3 | Invalid input";
@@ -125,13 +127,14 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 					continue;
 				}
 				num1 = pi;continue;
-			} else if(Input[i] == 'r'){
-				if(num1Done){
-					num2 = rand();
-					continue;
-				}
-				num1 = rand();continue;
-			} else if(Input[i] == 'm'){
+			} //else if(Input[i] == 'r'){
+			//	if(num1Done){
+			//		num2 = rand() % 9999 + 0;
+			//		continue;
+			//	}
+			//	num1 = rand() % 9999 + 0;continue;
+		//	}
+			 else if(Input[i] == 'm'){
 				if(num1Done){
 					num2 = mem;
 					continue;
@@ -174,7 +177,7 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 }
 
 int main(){
-	srand (time(NULL));
+	//srand (time(NULL));
 	cout << "-- tCalc V1.4 -- Programmed by Bailey Dawson --\n-- Type ':e' to exit | ':h' for help --\n";//Not a plug
 
 	while (true){//Main loop
@@ -186,7 +189,7 @@ int main(){
 		} else if(userInput == ":h"){//Help
 			cout << "You can only do one operation at once\nSupported Operators: All operations involing letters are case sensetive\n\t- Plus \t\t'<num1>+<num2>'\n\t- Minus \t'<num1>-<num2>'\n\t- Mutliply \t'<num1>*<num2>'\n\t- Divide \t'<num1>/<num2>'\n\t- Sine \t\t'sin(<num>)'\n\t- Cosine \t'cos(<num>)'\n\t- Tangent \t'tan(<num>)'\n";
 			cout << "Using Memory:\n\tJust enter m after getting the answer you want in Memory\n\tTo access memory put m instead of a number in a calcuation.\n";
-			cout << "Using 'constants':\n\tPi can be used in calcuation by typing 'p' instead of a number\n\tTo have a random number in a calculation type 'r' instead of a number\n";
+			cout << "Using 'constants':\n\tPi can be used in calcuation by typing 'p' instead of a number\n\tTo have a random number in a calculation type 'r' instead of a number <-- NOT DONE\n";
 			continue;
 		} else if(userInput == "m"){
 			mem = lastAnswer;
