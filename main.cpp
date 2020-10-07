@@ -6,7 +6,7 @@
 using namespace std;
 
 /*
-	tCalc v1.4
+	tCalc v1.5
 	Written in C++ by Bailey Dawson dawson270500@gmail.com
 	Orginally written in Python, V1.0 to V1.2
 
@@ -19,7 +19,7 @@ using namespace std;
 
 string lastAnswer = "0.0";
 string mem = "0.0";
-#define pi 3.14159265;
+float pi = 3.14159265;
 
 string doCalc(string Input){//Gets the string and coverts into something that is usable by the program, then works that out
 	
@@ -29,21 +29,20 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 			if(Input[i] == ')'){
 				break;
 			} else if(isdigit(Input[i])){//Constructing numbers
-				num = num + Input[i];
+				num = num + Input[i];continue;
 			} else if(Input[i] == '.'){
-				num = num + Input[i];
+				num = num + Input[i];continue;
 			} else if(Input[i] == 'p'){
-				num = pi;
-			} //else if(Input[i] == 'r'){
-				//num = rand() % 9999 + 0;
-			//} 
-			else if(Input[i] == 'm'){
-				num = mem;
-			} else {
-				return "Error 2.5 | Invalid input";
+				num = to_string(pi);continue;
+			} else if(Input[i] == 'r'){
+				num = to_string(rand() % 9999 + -9999);continue;
 			}
+			else if(Input[i] == 'm'){
+				num = mem;continue;
+			}
+			return "Error 2.5 | Invalid input";
 		}
-		float num1 = stof(num)* pi;
+		float num1 = stof(num) * pi;
 		num1 = num1 / 180;
 		if(Input[0] == 's'){
 			return to_string(sinf(num1));
@@ -78,10 +77,10 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 			} else if(Input[i] == '.'){
 				num = num + Input[i];
 			} else if(Input[i] == 'p'){
-				num = pi;
-			} //else if(Input[i] == 'r'){
-			//	num = rand();
-			//} 
+				num = to_string(pi);
+			} else if(Input[i] == 'r'){
+				num = to_string(rand() % 9999 + -9999);
+			} 
 			else if(Input[i] == 'm'){
 				num = mem;
 			}else {
@@ -123,17 +122,17 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 				num1 = num1 + Input[i];continue;
 			} else if(Input[i] == 'p'){
 				if(num1Done){
-					num2 = pi;
+					num2 = to_string(pi);
 					continue;
 				}
-				num1 = pi;continue;
-			} //else if(Input[i] == 'r'){
-			//	if(num1Done){
-			//		num2 = rand() % 9999 + 0;
-			//		continue;
-			//	}
-			//	num1 = rand() % 9999 + 0;continue;
-		//	}
+				num1 = to_string(pi);continue;
+			} else if(Input[i] == 'r'){
+				if(num1Done){
+					num2 = to_string(rand() % 9999 + -9999);
+					continue;
+				}
+				num1 = to_string(rand() % 9999 + -9999);continue;
+			}
 			 else if(Input[i] == 'm'){
 				if(num1Done){
 					num2 = mem;
@@ -189,7 +188,7 @@ int main(){
 		} else if(userInput == ":h"){//Help
 			cout << "You can only do one operation at once\nSupported Operators: All operations involing letters are case sensetive\n\t- Plus \t\t'<num1>+<num2>'\n\t- Minus \t'<num1>-<num2>'\n\t- Mutliply \t'<num1>*<num2>'\n\t- Divide \t'<num1>/<num2>'\n\t- Sine \t\t'sin(<num>)'\n\t- Cosine \t'cos(<num>)'\n\t- Tangent \t'tan(<num>)'\n";
 			cout << "Using Memory:\n\tJust enter m after getting the answer you want in Memory\n\tTo access memory put m instead of a number in a calcuation.\n";
-			cout << "Using 'constants':\n\tPi can be used in calcuation by typing 'p' instead of a number\n\tTo have a random number in a calculation type 'r' instead of a number <-- NOT DONE\n";
+			cout << "Using 'constants':\n\tPi can be used in calcuation by typing 'p' instead of a number\n\tTo have a random number in a calculation type 'r' instead of a number\n";
 			continue;
 		} else if(userInput == "m"){
 			mem = lastAnswer;
