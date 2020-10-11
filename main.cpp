@@ -55,7 +55,7 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 		}
 	}
 
-	if(!isdigit(Input[0])){
+	if(!isdigit(Input[0]) && Input[0] != 'p' && Input[0] != 'r' && Input[0] != 'm'){
 		int op;
 
 		if(Input[0] == '+'){//Finding operator
@@ -177,7 +177,7 @@ string doCalc(string Input){//Gets the string and coverts into something that is
 
 int main(){
 	//srand (time(NULL));
-	cout << "-- tCalc V1.4 -- Programmed by Bailey Dawson --\n-- Type ':e' to exit | ':h' for help --\n";//Not a plug
+	cout << "-- tCalc V1.5 -- Programmed by Bailey Dawson --\n-- Type ':e' to exit | ':h' for help --\n";//Not a plug
 
 	while (true){//Main loop
 		string userInput;
